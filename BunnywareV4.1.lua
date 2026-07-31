@@ -1,13 +1,5 @@
--- ============================================================
--- Bunnyware V4 🐰 – Murder Mystery 2
--- by Aleksandra "Drew" Malinina
--- Migrated to Rayfield UI for stability.
--- ============================================================
-
--- Load Rayfield
 local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
 
--- Create Window
 local Window = Rayfield:CreateWindow({
     Name = "Bunnyware V4 🐰",
     LoadingTitle = "Bunnyware V4",
@@ -20,9 +12,7 @@ local Window = Rayfield:CreateWindow({
     KeySystem = false,
 })
 
--- ============================================================
 -- MAIN TAB
--- ============================================================
 local MainTab = Window:CreateTab("Main", nil)
 local MainSection = MainTab:CreateSection("Movement & Utilities")
 
@@ -336,9 +326,7 @@ MainTab:CreateToggle({
     end
 })
 
--- ============================================================
 -- AIMBOT TAB
--- ============================================================
 local AimbotTab = Window:CreateTab("Aimbot", nil)
 local aimbotEnabled = false
 local smoothness = 0.5
@@ -347,7 +335,7 @@ local offset = 2.1
 local aimbotPredictionOffset = 1.0
 local fovCircleTransparency = 0.3
 
--- FOV Circle GUI (properly centered)
+-- FOV Circle GUI
 local fovCircleFrame = nil
 local function updateFOVCircle()
     if fovCircleFrame then
@@ -465,7 +453,7 @@ AimbotTab:CreateSlider({
     Callback = function(v) aimbotPredictionOffset = v end
 })
 
--- Keybind to toggle aimbot (default P)
+-- Keybind to toggle aimbot /
 local aimbotKeybind = Enum.KeyCode.P
 local aimbotKeybindConnection = nil
 
@@ -583,9 +571,7 @@ AimbotTab:CreateButton({
     Callback = createFloatingAimbotToggle
 })
 
--- ============================================================
 -- ESP TAB
--- ============================================================
 local ESPTab = Window:CreateTab("ESP", nil)
 local espEnabled = false
 local espPlayer = false
@@ -796,9 +782,7 @@ ESPTab:CreateToggle({
     end
 })
 
--- ============================================================
 -- AUTO TAB
--- ============================================================
 local AutoTab = Window:CreateTab("Auto", nil)
 local autoCollectCoins = false
 local autoReady = false
@@ -867,9 +851,7 @@ AutoTab:CreateToggle({
     Callback = function(v) autoReady = v end
 })
 
--- ============================================================
 -- COMBAT TAB
--- ============================================================
 local CombatTab = Window:CreateTab("Combat", nil)
 
 -- Shared functions
@@ -1156,9 +1138,7 @@ CombatTab:CreateParagraph({
     Content = "Other known good offsets: shooting 1.2, 1.4, 2.7; knife 2.8, 3.2, 4.0"
 })
 
--- ============================================================
 -- DYNAMIC PING-BASED OFFSET TOGGLE
--- ============================================================
 local dynamicPingOffset = false
 local dynamicOffsetTask = nil
 
@@ -1334,9 +1314,7 @@ CombatTab:CreateKeybind({
     end
 })
 
--- ============================================================
 -- Other Combat Buttons (floating, fling, etc.)
--- ============================================================
 
 -- Floating buttons (still using manual GUI)
 local createCooldown = false
@@ -1433,9 +1411,7 @@ CombatTab:CreateButton({
     end
 })
 
--- ============================================================
 -- MISC TAB
--- ============================================================
 local MiscTab = Window:CreateTab("Misc", nil)
 
 MiscTab:CreateButton({
@@ -1519,9 +1495,7 @@ MiscTab:CreateButton({
     end
 })
 
--- ============================================================
 -- CORE ENGINE – AUTOFARM (with fling integration)
--- ============================================================
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
 local UserInputService = game:GetService("UserInputService")
@@ -1892,9 +1866,7 @@ RunService.Heartbeat:Connect(function()
     end
 end)
 
--- ============================================================
 -- OTHER CORE FEATURES
--- ============================================================
 
 -- FAST PREDICTIVE AIMBOT (smooth, updated every frame)
 local function GetAimbotTarget()
@@ -1951,9 +1923,7 @@ local aimbotRenderConnection = RunService.RenderStepped:Connect(function()
     end
 end)
 
--- ============================================================
 -- OTHER MISC FEATURES (speed, jump, fly, etc.) – still on Heartbeat throttle
--- ============================================================
 local function ReadyUp()
     if not autoReady then return end
     local gui = LocalPlayer.PlayerGui
